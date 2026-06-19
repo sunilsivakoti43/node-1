@@ -1,18 +1,28 @@
-name: ci
+name: CI
 
-on: push
+on:
+  push:
+    branches:
+      - develop
+      - test
 
 jobs:
   deploy-staging:
-    if: github.ref == 'refs/heads/develop' # Only run for the develop branch
-    environment: staging
+    if: github.ref == 'refs/heads/develop'
     runs-on: ubuntu-latest
+    environment: staging
+
     steps:
+      - uses: actions/checkout@v4
+
       - run: echo "Deploying to Staging..."
 
   deploy-production:
-    if: github.ref == 'refs/heads/test' # Only run for the main branch
-    environment: production
+    if: github.ref == 'refs/heads/test'
     runs-on: ubuntu-latest
+    environment: production
+
     steps:
-      - run: echo "Deploying to Production...."
+      - uses: actions/checkout@v4
+
+      - run: echo "Deploying to Production..."
