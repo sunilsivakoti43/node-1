@@ -78,7 +78,7 @@ jobs:
     needs: build_and_package
 
     # Only run on the main branch, not on Pull Requests
-    if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/master'
 
     runs-on: ubuntu-latest
 
