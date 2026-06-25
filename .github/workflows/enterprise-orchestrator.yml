@@ -31,7 +31,13 @@ jobs:
       - name: test
         run: npm test
 
-
+          
+      - name: Artifact upload
+        uses: actions/upload-artifact@v7
+        with:
+          name: artifact-1
+          path: |
+             package*
 
       - name: Deploy
         run: echo "code is deployed"
