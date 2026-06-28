@@ -20,4 +20,7 @@ jobs:
         run: npm test
         
       - name: artifact
-        run: npm package
+        run: npm help 
+    
+      - name: deploy
+        run: echo " heloo guru"
