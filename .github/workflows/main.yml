@@ -22,7 +22,10 @@ jobs:
       - name: initialize codeql
         uses: github/codeql-action/init@v4
         with:
-           language: javascript 
+           language: javascript   
+
+      - name: autobuild
+        uses: github/codeql-action/autobuild@v3
 
       - name: run codeql analysis
         uses: github/codeql-action/analyze@v4
