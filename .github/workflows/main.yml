@@ -1,0 +1,23 @@
+name: nodejs
+on: push
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v7
+        
+      - name: nodejs
+        uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+          
+      - name: build
+        run: npm compile
+        
+      - name: test
+        run: npm test
+        
+      - name: artifact
+        run: npm package
