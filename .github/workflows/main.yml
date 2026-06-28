@@ -1,6 +1,12 @@
 name: nodejs
-on: push
+on: push 
 
+permissions: 
+  security-events: write
+  issues:   write
+  actions: read
+  contents: read 
+  
 jobs:
    build-test:
     runs-on: ubuntu-latest
@@ -11,7 +17,15 @@ jobs:
       - name: nodejs
         uses: actions/setup-node@v6
         with:
-          node-version: '24'
+          node-version: '24' 
+          
+      - name: initialize codeql
+        uses: github/codeql-action/init@v4
+        with:
+           language: javascript 
+
+      - name: run codeql analysis
+        uses: github/codeql-action/analyze@v4
           
       - name: build
         run: npm install
