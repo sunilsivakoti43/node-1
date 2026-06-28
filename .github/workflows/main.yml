@@ -14,7 +14,7 @@ jobs:
           node-version: '24'
           
       - name: build
-        run: npm compile
+        run: npm install
         
       - name: test
         run: npm test
