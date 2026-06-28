@@ -1,5 +1,7 @@
 name: nodejs
-on: push 
+on:  
+ push:
+    branches: master
 
 permissions: 
   security-events: write
