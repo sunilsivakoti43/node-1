@@ -20,7 +20,11 @@ jobs:
         run: npm test
         
       - name: artifact
-        run: npm help 
+        uses: actions/upload-artifact@v7
+        with:
+           name: artifact-1
+           path:  | 
+                package*
     
       - name: deploy
         run: echo " heloo guru"
